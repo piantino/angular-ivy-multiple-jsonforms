@@ -1,0 +1,35 @@
+
+<h1>Multiple Forms (Angular)</h1>
+
+https://spectrum.chat/jsonforms/general/multiple-forms-angular~5aadb164-dd14-4aa8-9052-4a2ffe537007
+
+
+<hello name="{{ name }}"></hello>
+
+
+<mat-card>
+  <div fxLayout="row" fxFill>
+    <div>
+      <h1>Json Forms Test</h1>
+      <mat-form-field>
+        <mat-label>JSON Schema</mat-label>
+        <textarea [(ngModel)]="json" matInput></textarea>
+      </mat-form-field>
+      <button mat-raised-button (click)="update()">Submit</button>
+    </div>
+    <div>
+      <h2>Form 1</h2>
+      <app-isolated-form [schema]="schema" (stateChange)="data1 = $event"></app-isolated-form>
+      <pre>
+        {{data1 | json}}
+      </pre>
+    </div>
+    <div>
+      <h2>Form 2</h2>
+      <app-isolated-form [schema]="schema" (stateChange)="data2 = $event"></app-isolated-form>
+      <pre>
+        {{data2 | json}}
+      </pre>
+    </div>
+  </div>
+</mat-card>
